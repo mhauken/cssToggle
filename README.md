@@ -1,4 +1,4 @@
 cssToggle
 =========
 
-Toggles an element on or of with css-animation then hides it..
+A jQuery plugin that toggles an element on or off with css-animation then hides it..

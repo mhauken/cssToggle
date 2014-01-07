@@ -1,0 +1,168 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+@mixin vendor($property, $value){
+    -webkit-#{$property}:$value;
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+            #{$property}:$value;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html
+{
+    height: 100%;
+}
+
+body{
+    margin: 40px auto 0;
+    background: url('../img/img.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.wrapper{
+    max-width: 400px;
+    margin: auto;
+}
+
+.button{
+    display: block;
+    background: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 19px;
+    margin: 1em 1em 0 1em;
+    text-decoration: none;
+    border: #fff solid 1px;
+    color: black;
+     &:hover, &:active{
+        background: rgba(255,255,255,1);
+        border: gray solid 1px;
+        }
+}
+
+.button--external{
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 1em 0;
+    margin: 1em auto 0;
+    max-width: 190px;
+    &:hover, &:active{
+        background: rgba(0,0,0,1);
+        border: black solid 1px;
+        }
+}
+
+
+
+.toggled {
+    display: block;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 1em 2em;
+    margin: 0 1em 1em 1em;
+    a{
+        color: #fff;
+        &:hover{
+             background: #fff;
+             color: black;
+        }
+    }
+}
+
