@@ -15,24 +15,20 @@
     $.fn.cssToggle = function(options) {
 
         /*
-          For accepting options regarding animation-speed
-          [1] Define the variable ms, then edit it according to the options
-          [2] We specify the speed of "fast" as jQuerys default
-          [3] We specify the speed of "slow" as jQuerys default
-          [4] User can also specify their wanted speed
-          [5] If no speed specified we define the speed as 400ms..
+          [1] The default settings
+          [2] These are by default to get a nice slideToggle solution
         */
-        var ms; //[1]
 
-        if(options === 'fast') {
-          ms = 200; //[2]
-        }else if (options === 'slow') {
-          ms = 600; //[3]
-        }else if (options) {
-          ms = options; //[4]
-        }else{
-          ms = 400; //[5]
-        }
+        var settings = $.extend({ //[1]
+            duration: "400",
+            easing: "ease",
+            position: {
+              showing: "relative", //[2]
+              hiding: "absolute"
+            },
+            showComplete: function() {},
+            hideComplete: function() {}
+        }, options );
 
 
         return this.each(function() {
@@ -45,8 +41,8 @@
             */
 
             var $this = $(this); //[1]
-            var s = ms/1000; //[2]
-            var easing =  "opacity " + s +"s ease"; //[3]
+            var s = settings.duration/1000; //[2]
+            var transition =  "opacity " + s +"s " + settings.easing; //[3]
 
             /*
             [1] Pass after position:absolute..
@@ -54,66 +50,71 @@
             */
             function visible(){ //[1]
                     $this.css( "opacity", "1" );
-                    setTimeout(remove, ms); //[2]
+                    setTimeout(remove, settings.duration); //[2]
             }
 
             /*
             [1] remove all the attributes we've added. Force display: block.
-            [2] remove all the attributes we've added. Force display: none
-            [3] Apply css-animations on target
+            [2] callback so we can apply functions when showing is complete
+            [3] remove all the attributes we've added. Force display: none
+            [4] callback so we can apply functions when hiding is complete
+            [5] Apply css-animations on target
             */
             function remove(){ //[1]
                 $this.removeAttr( 'style' ).css('display', 'block');
+                settings.showComplete();//[2]
             }
 
-            function hide(){ //[2]
-                 $this.removeAttr( 'style' ).css('display', 'none');
+            function hide(){ //[3]
+                $this.removeAttr( 'style' ).css('display', 'none');
+                settings.hideComplete();//[4]
             }
 
-           $this.css({   //[3]
-                    "-webkit-transition" : easing ,
-                    "-moz-transition" : easing,
-                    "-ms-transition" : easing,
-                    "-o-transition" : easing,
-                    "transition" : easing,
+           $this.css({   //[5]
+                    "-webkit-transition" : transition,
+                    "-moz-transition" : transition,
+                    "-ms-transition" : transition,
+                    "-o-transition" : transition,
+                    "transition" : transition,
                     "z-index" : "1000"
             });
 
            /*
            [1] If target is display: none do this
-           [2] push the elements down at once.
+           [2] set the position according to options
            [3] Set opacity to 0
            [4] set to display block
            [5] A little delay before we fade inn the opacity via the visible-function
            */
 
             if($(this).css('display') === 'none') { //[1]
-                $this.css( "position", "relative" ); //[2]
                 $this.css({
+                    "position": settings.position.showing, //[2]
                     "opacity": "0", //[3]
-                    "display": "block",  //[4]
+                    "display": "block"  //[4]
                 });
                 setTimeout(visible, 1);  //[5]
 
+
            /*
            [1] If target is displayed do this
-           [2] Get the width of the element before we make it absolute
-           [3] Apply the width of the element so it don't rescale when absolute
-           [4] we want the element in the front
+           [2] Get the width of the element (needed if we're setting the element to absolute)
+           [3] Apply the width of the element so it don't rescale if absolute
+           [4] Set the postiotioning of the element
            [5] Set opacity to 0
-           [6] Hide element from DOM when finished
+           [6] Hide element from DOM when finished by calling the hide-function
            [7] Making our plugin method chainable takes this line of code
            [8] End of return this each
            */
 
-            }else { //[1]
+            }else{ //[1]
                 var size = $this.width(); //[2]
                 $this.css({
                     "width": size + "px", //[3]
-                    "position": "absolute", //[4]
+                    "position": settings.position.hiding,//[4]
                     "opacity": "0" //[5]
                   });
-                setTimeout(hide, ms); //[6]
+                setTimeout(hide, settings.duration); //[6]
 
             }
 
