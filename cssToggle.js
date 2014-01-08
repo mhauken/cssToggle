@@ -5,11 +5,6 @@
 // https://github.com/mhauken/cssToggle
 //////////////////////////////
 */
-/*
-// TODO:
-// [1] Recieve an absolute-parameter for fade-in menus etc..
-// [2] Specify easing? How important is it that the syntax should be similar to slideToggle?
-*/
 
 (function ( $ ) { //Protecting the $ Alias and Adding Scope
     $.fn.cssToggle = function(options) {

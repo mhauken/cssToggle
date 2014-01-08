@@ -3,6 +3,9 @@ cssToggle
 
 A jQuery plugin that toggles an element on or off with CSS3 transitions, and then hides it.. Similar to jQuery's toggle and slideToggle but using CSS3 transitions instead.
 
+# Todo:
+[] Make an option for not modifying position at all. ex: ignorePosition: true;
+
 # options
 
 ## duration
