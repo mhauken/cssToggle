@@ -5,8 +5,11 @@ A jQuery plugin that toggles an element on or off with CSS3 transitions, and the
 
 # Todo:
 [] Make an option for not modifying position at all. ex: ignorePosition: true;
+
 [] Make an option for defining how you want to define display: ex: display: block, display: inline-block etc...
+
 [] Default position static istedet.
+
 [] Disable clicks until animation is complete..
 
 # options
