@@ -15,7 +15,7 @@
         */
 
         var settings = $.extend({ //[1]
-            duration: "400",
+            duration: "300",
             easing: "ease",
             position: {
               showing: "relative", //[2]
