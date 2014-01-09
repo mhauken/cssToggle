@@ -3,15 +3,6 @@ cssToggle
 
 A jQuery plugin that toggles an element on or off with CSS3 transitions, and then hides it.. Similar to jQuery's toggle and slideToggle but using CSS3 transitions instead.
 
-# Todo:
-[] Make an option for not modifying position at all. ex: ignorePosition: true;
-
-[] Make an option for defining how you want to define display: ex: display: block, display: inline-block etc...
-
-[] Default position static istedet.
-
-[] Disable clicks until animation is complete..
-
 # options
 
 ## duration
@@ -50,8 +41,8 @@ Values that can be chosen:
 
 
 ## position
-Sets the position of the toggled class during the during showing and hiding animation.
-_Default is position:relative when showing and position:absolute when hiding_
+Sets the position of the toggled element during the during showing and hiding animation.
+_Default is position:static when showing and position:absolute when hiding_
 
 Values that can be chosen:
 * static
@@ -71,6 +62,42 @@ Values that can be chosen:
         return false;
     });
 
+
+## ignore position
+By default the toggled element will be position:relative when showing and position:absolute when hiding. If you don't want the plugin to edit the position during animations you can use the position ignore option.
+
+### example
+    $(".js-csstoggleNext").click(function(){
+        $(this).next().cssToggle({
+            position: {
+                ignore: true
+            }
+        });
+        return false;
+    });
+
+
+## display
+When the element is showing this sets the value of display
+_Default is display:block;_
+
+Values that can be chosen:
+* block
+* inline
+* inline-block
+* inline-table
+* list-item
+* inherit
+* none (don't recommended if you want to see the object)
+* table (and a lot of table display-options)
+
+### example
+    $(".js-csstoggleNext").click(function(){
+        $(this).next().cssToggle({
+            display: "inline-block"
+        });
+        return false;
+    });
 
 ## showComplete and hideComplete
 Functions that can be run after showing or hiding is complete.
