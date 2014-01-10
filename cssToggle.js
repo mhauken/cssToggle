@@ -137,7 +137,7 @@
                       "opacity": "0" //[4]
                     });
                   }else{//[5]
-                    var size = $this.width(); //[6]
+                    var size = $this.outerWidth(); //[6]
                     $this.css({
                         "width": size + "px", //[7]
                         "position": settings.position.hiding,//[8]
