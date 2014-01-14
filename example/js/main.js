@@ -6,10 +6,7 @@ $( ".js-toggleNext" ).click(function() {
 
 $(".js-csstoggleNext").click(function(){
 	$(this).next().cssToggle({
-		// display: "inline",
-		// position: {
-		// 	ignore: true
-		// },
+
 		showComplete: function() {
 		    console.log('button is now showing');
   		},

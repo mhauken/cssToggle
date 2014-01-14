@@ -3,6 +3,8 @@ cssToggle
 
 A jQuery plugin that toggles an element on or off with CSS3 transitions, and then hides it.. Similar to jQuery's toggle and slideToggle but using CSS3 transitions instead.
 
+It's recommended that you have Box-sizing: Border-box; for this to work, but hey – why shouldn't you?
+
 # options
 
 ## duration
