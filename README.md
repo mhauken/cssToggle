@@ -12,12 +12,14 @@ Set the duration of the animation.
 _Default is 300 ms_
 
 ### example
-    $(".js-csstoggleNext").click(function(){
-        $(this).next().cssToggle({
-            duration: "1000"
-        });
-        return false;
-    });
+```javascript
+$(".js-csstoggleNext").click(function(){
+  $(this).next().cssToggle({
+    duration: "1000"
+  });
+  return false;
+});
+```
 
 ## easing
 Set the easing of the animation.
@@ -34,13 +36,14 @@ Values that can be chosen:
 * [cubic beziers](http://cubic-bezier.com/#.17,.67,.83,.67)
 
 ### example
-    $(".js-csstoggleNext").click(function(){
-        $(this).next().cssToggle({
-            easing: "ease-out"
-        });
-        return false;
+```javascript
+$(".js-csstoggleNext").click(function(){
+    $(this).next().cssToggle({
+        easing: "ease-out"
     });
-
+    return false;
+});
+```
 
 ## position
 Sets the position of the toggled element during the during showing and hiding animation.
@@ -54,29 +57,33 @@ Values that can be chosen:
 * inherit
 
 ### example
-    $(".js-csstoggleNext").click(function(){
-        $(this).next().cssToggle({
-            position: {
-                showing: 'relative',
-                hiding: 'absolute'
-            }
-        });
-        return false;
+```javascript
+$(".js-csstoggleNext").click(function(){
+    $(this).next().cssToggle({
+        position: {
+            showing: 'relative',
+            hiding: 'absolute'
+        }
     });
+    return false;
+});
+```
 
 
 ## ignore position
 By default the toggled element will be position:relative when showing and position:absolute when hiding. If you don't want the plugin to edit the position during animations you can use the position ignore option.
 
 ### example
-    $(".js-csstoggleNext").click(function(){
-        $(this).next().cssToggle({
-            position: {
-                ignore: true
+```javascript
+$(".js-csstoggleNext").click(function(){
+    $(this).next().cssToggle({
+        position: {
+            ignore: true
             }
         });
-        return false;
-    });
+    return false;
+});
+```
 
 
 ## display
@@ -94,18 +101,21 @@ Values that can be chosen:
 * table (and a lot of table display-options)
 
 ### example
+```javascript
     $(".js-csstoggleNext").click(function(){
         $(this).next().cssToggle({
             display: "inline-block"
-        });
-        return false;
     });
+    return false;
+});
+```
 
 ## showComplete and hideComplete
 Functions that can be run after showing or hiding is complete.
 _Default is nothing_
 
 ### example
+```javascript
     $(".js-csstoggleNext").click(function(){
         $(this).next().cssToggle({
             showComplete: function() {
@@ -117,3 +127,4 @@ _Default is nothing_
         });
         return false;
     });
+```
